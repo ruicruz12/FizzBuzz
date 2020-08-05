@@ -1,4 +1,5 @@
 ********** Fizz Buzz Test **********
+
 Description:
  - The algorithm was written in python.
  - There's is 2 versions of the algo, one is a more clean but extense and the other is shorter but more messy and probably a little faster
