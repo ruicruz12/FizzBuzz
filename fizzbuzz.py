@@ -8,27 +8,29 @@ class FizzBuzzV1:
         self.number=number
     
     def fizz(self):
-        return self.number % 3 == 0 or str(self.number).find('3') >= 0
-             
+        return self.number % 3 == 0 
+     
+    def fizzy(self):
+        return str(self.number).find('3') >= 0
     
     def buzz(self):
-        return self.number % 5 == 0 or str(self.number).find('5') >= 0
-            
+        return self.number % 5 == 0 
+    
+    def buzzy(self):
+        return str(self.number).find('5') >= 0
         
     def fizzbuzz(self):
-        return self.number % 3 == 0 and self.number % 5 == 0
+        return self.fizz() and self.buzz()
             
-    
     def lucky(self):
-        return self.fizz() and self.buzz() and self.fizzbuzz()
+        return (self.fizz() or self.fizzy()) and (self.buzz() or self.buzzy()) and self.fizzbuzz()
            
-        
     def fizz_fizz(self):
-        return self.number % 3 == 0 and str(self.number).find('3') >= 0
-          
+        return self.fizz() and self.fizzy()
         
     def buzz_buzz(self):
-        return self.number % 5 == 0 and str(self.number).find('5') >= 0
+        return self.buzz() and self.buzzy()
+    
     
     
 def get_fizzbuzz(number):
@@ -48,10 +50,10 @@ def get_fizzbuzz(number):
         elif fb_class.fizzbuzz():
             fizz_buzz.append('fizzbuzz')
             
-        elif fb_class.fizz():
+        elif fb_class.fizz() or fb_class.fizzy():
             fizz_buzz.append('fizz')
             
-        elif fb_class.buzz():
+        elif fb_class.buzz() or fb_class.buzzy():
             fizz_buzz.append('buzz')
             
         else:
@@ -59,6 +61,7 @@ def get_fizzbuzz(number):
             
     
     return fizz_buzz
+
 
 print('Version 1: ',get_fizzbuzz(21))
 
